@@ -39,17 +39,17 @@
   <section class="wrap hero">
     <p class="eyebrow">Azimuth · context-first methodology</p>
     <h1>Your agentic workflows are still just automation.</h1>
-    <p>Governance is a design-time decision. Define the gates, the expert knowledge, the evidence — before the model, before the orchestrator. Enterprise-grade because every decision stays reconstructable, named, and defensible to a regulator.</p>
+    <p>An AI decision you can't explain is a liability. Governance — proving why, and who owns it — is a design-time decision: define the gates, the expert knowledge, the evidence before the model and the orchestrator. Enterprise-grade because every decision stays reconstructable, named, and defensible to a regulator.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="#argument">Read the argument →</a>
-      <a class="btn btn-ghost" href="https://github.com/akagou/azimuth">View on GitHub</a>
+      <a class="btn btn-primary" href="https://github.com/akagou/azimuth">View on GitHub →</a>
+      <a class="btn btn-ghost" href="#argument">Read the argument</a>
     </div>
   </section>
 
   <section id="argument" class="section">
     <div class="wrap">
       <h2><span class="mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"/><line x1="32" y1="32" x2="48" y2="12" stroke="#5FB3A3" stroke-width="5" stroke-linecap="round"/></svg></span>The argument</h2>
-      <div class="read">
+      <div class="movements">
         <div class="movement reveal">
           <span class="num">i</span>
           <h3>The question you can't answer</h3>
@@ -58,14 +58,16 @@
         <div class="movement reveal">
           <span class="num">ii</span>
           <h3>It's a design problem</h3>
-          <p>Frameworks execute agent graphs. None define the contracts: what each agent must do, where a human must <em>decide</em> — not just approve — what domain knowledge must exist before the workflow runs. You can't bolt these onto a system never designed for them.</p>
+          <p>Frameworks execute agent graphs. None define the contracts: what each agent must do, where a human must <em>decide</em> (not just approve), and which experts must answer before the workflow runs. You can't bolt these onto a system never designed for them.</p>
         </div>
         <div class="movement reveal">
           <span class="num">iii</span>
           <h3>Governance is a file you author</h3>
           <p>Other approaches run at inference time or after the fact: monitoring, guardrails, audit logs. Azimuth runs at design time. One context spec, written once, executes unmodified on any conformant runtime. Governance becomes a file you author, not a system you operate.</p>
         </div>
-        <blockquote class="pull">The context stack outlives every technology change. It was never about the technology.</blockquote>
+      </div>
+      <div class="read">
+        <blockquote class="pull">The context stack outlives every technology change. It was never about the technology.<cite>— the context-first manifesto</cite></blockquote>
         <p class="footnote">Prior art is documented honestly — see <code>docs/07-prior-art.md</code>. The novelty is naming and packaging the discipline, not claiming the parts are new.</p>
       </div>
     </div>
@@ -74,12 +76,25 @@
   <section id="primitives" class="section">
     <div class="wrap">
       <h2><span class="mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"/><line x1="32" y1="32" x2="48" y2="12" stroke="#5FB3A3" stroke-width="5" stroke-linecap="round"/></svg></span>Three primitives</h2>
-      <p class="read" style="margin:0 0 36px;color:var(--text)">Three primitives, one portable validated spec. No runtime gives you these at design time.</p>
+      <p class="read" style="margin:0 0 28px;color:var(--text)">Three primitives, one portable validated spec. No runtime gives you these at design time.</p>
+      <svg class="flow" viewBox="0 0 760 70" role="img" aria-label="Knowledge Contracts feed a Gate; the Gate emits bound Evidence.">
+        <rect x="1" y="14" width="200" height="42" rx="4" stroke="currentColor" stroke-width="1" fill="none"/>
+        <text x="101" y="40" text-anchor="middle">Knowledge Contract</text>
+        <line x1="201" y1="35" x2="278" y2="35" stroke="#5FB3A3" stroke-width="1.5"/>
+        <path d="M278 35 l-8 -4 v8 z" fill="#5FB3A3"/>
+        <rect x="280" y="14" width="200" height="42" rx="4" stroke="#5FB3A3" stroke-width="1.5" fill="none"/>
+        <text x="380" y="34" text-anchor="middle">Gate</text>
+        <text x="380" y="48" text-anchor="middle" class="sm">PASS · FAIL · ESCALATE</text>
+        <line x1="480" y1="35" x2="557" y2="35" stroke="#5FB3A3" stroke-width="1.5"/>
+        <path d="M557 35 l-8 -4 v8 z" fill="#5FB3A3"/>
+        <rect x="559" y="14" width="200" height="42" rx="4" stroke="currentColor" stroke-width="1" fill="none"/>
+        <text x="659" y="40" text-anchor="middle">Bound Evidence</text>
+      </svg>
       <div class="grid3">
         <div class="prim">
-          <span class="label">SME Input Packs</span>
+          <span class="label">Knowledge Contracts</span>
           <h3>Expert knowledge, typed</h3>
-          <p>Expert knowledge as a typed artifact: named answerer, role, evidence links, confidence, sign-off. Not a prompt. Inspectable, versionable, auditable.</p>
+          <p>Expert knowledge as a typed artifact (an SME pack): named answerer, role, evidence links, confidence, sign-off. Not a prompt. Inspectable, versionable, auditable.</p>
         </div>
         <div class="prim">
           <span class="label">Gates</span>
@@ -96,21 +111,36 @@
   </section>
 
   <section id="adopt" class="section adopt">
-    <div class="wrap read">
+    <div class="wrap">
       <h2><span class="mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"/><line x1="32" y1="32" x2="48" y2="12" stroke="#5FB3A3" stroke-width="5" stroke-linecap="round"/></svg></span>How adoption works</h2>
-      <p class="lead">You never hand-write YAML. You talk to the Azimuth Consultant. It asks three questions:</p>
-      <ul class="qs">
-        <li>What decision does the workflow produce?</li>
-        <li>Where must a human decide, with real judgment?</li>
-        <li>What knowledge lives only in your domain experts?</li>
-      </ul>
-      <p class="close">The answers become a <strong>Context Design Document</strong> — prose stakeholders can read. It compiles to a validated <code>context-spec.yaml</code> that any conformant runtime runs.</p>
+      <p class="lead read">You never hand-write YAML. The Azimuth Consultant — an AI skill that runs in Claude Code, not a services engagement — interviews you, then compiles the result.</p>
+      <ol class="steps">
+        <li>
+          <span class="step-n">Step 1</span>
+          <h3>The interview</h3>
+          <p>The Consultant skill asks three questions: what decision the workflow produces, where a human must decide with real judgment, and what knowledge lives only in your domain experts.</p>
+        </li>
+        <li>
+          <span class="step-n">Step 2</span>
+          <h3>The agreement</h3>
+          <p>The answers become a <strong>Context Design Document</strong> — prose your stakeholders read and sign off. No YAML, no schema knowledge required.</p>
+        </li>
+        <li>
+          <span class="step-n">Step 3</span>
+          <h3>The execution</h3>
+          <p>It compiles to a validated <code>context-spec.yaml</code> that any conformant runtime runs unmodified.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <section class="status">
     <div class="wrap">
-      <p>Azimuth is <code>azimuth/v1alpha</code> — pre-1.0, a reference implementation. Breaking changes are possible until <code>v1</code>. Apache-2.0, patent grant included. This repository currently hosts the landing page; the toolkit and Consultant skill land next.</p>
+      <div class="statuscard">
+        <span class="label">Status · azimuth/v1alpha</span>
+        <p>Pre-1.0 reference implementation. Breaking changes are possible until <code>v1</code>. Apache-2.0, patent grant included.</p>
+        <p class="ship"><strong>Shipped:</strong> this landing page. &nbsp;<strong>Next:</strong> the validator toolkit and the Consultant skill.</p>
+      </div>
     </div>
   </section>
 
