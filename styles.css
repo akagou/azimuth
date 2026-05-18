@@ -1,0 +1,149 @@
+/* ===== Azimuth — instrument frame + manifesto voice ===== */
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("./assets/serif-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("./assets/serif-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+
+:root {
+  --ink: #0E1418;
+  --surface: #11181C;
+  --hairline: #243239;
+  --text: #D6E0E4;
+  --muted: #7E939B;
+  --accent: #5FB3A3;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Mono", monospace;
+  --maxw: 1080px;
+  --readw: 640px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, .btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent); color: var(--ink);
+  padding: 10px 16px; font-family: var(--mono); font-size: 13px; z-index: 10;
+}
+.skip:focus { left: 12px; top: 12px; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+.eyebrow {
+  font-family: var(--mono); font-size: 12px; font-weight: 400;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
+}
+.section { border-top: 1px solid var(--hairline); padding: 84px 0; }
+.section h2 {
+  font-size: 14px; font-family: var(--mono); font-weight: 400;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 36px; display: flex; align-items: center; gap: 12px;
+}
+.section h2 .mark { width: 18px; height: 18px; color: var(--muted); flex: none; }
+.read { max-width: var(--readw); }
+
+/* ---- top bar ---- */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 0; border-bottom: 1px solid var(--hairline);
+}
+.brand { display: flex; align-items: center; gap: 11px; font-weight: 600; font-size: 19px; color: var(--text); text-decoration: none; }
+.brand .mark { width: 24px; height: 24px; color: var(--text); }
+.nav { display: flex; align-items: center; gap: 26px; font-family: var(--mono); font-size: 13px; }
+.nav a { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--text); }
+.nav a.gh { color: var(--text); }
+@media (max-width: 680px) { .nav a:not(.gh) { display: none; } }
+
+/* ---- hero ---- */
+.hero { padding: 104px 0 96px; }
+.hero .eyebrow { margin-bottom: 26px; }
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.08;
+  font-weight: 600; letter-spacing: -.015em; margin: 0 0 24px; max-width: 16ch;
+}
+.hero p { font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--text); max-width: 52ch; margin: 0 0 40px; }
+.cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.btn {
+  font-family: var(--mono); font-size: 14px; text-decoration: none;
+  padding: 13px 22px; border-radius: 4px; display: inline-block;
+}
+.btn-primary { background: var(--accent); color: var(--ink); font-weight: 600; }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-ghost { color: var(--text); border: 1px solid var(--hairline); }
+.btn-ghost:hover { border-color: var(--muted); }
+
+/* ---- argument ---- */
+.movement { margin-bottom: 44px; }
+.movement .num {
+  font-family: var(--mono); font-size: 13px; color: var(--accent);
+  letter-spacing: .12em; display: block; margin-bottom: 10px;
+}
+.movement h3 { font-size: 1.5rem; font-weight: 600; margin: 0 0 12px; line-height: 1.25; }
+.movement p { margin: 0; color: var(--text); }
+.pull {
+  border-left: 2px solid var(--accent); padding: 6px 0 6px 24px;
+  font-size: 1.5rem; line-height: 1.4; color: var(--text);
+  margin: 56px 0; max-width: var(--readw);
+}
+.footnote { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-top: 40px; }
+.footnote code { color: var(--text); }
+
+/* ---- primitives ---- */
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
+@media (max-width: 760px) { .grid3 { grid-template-columns: 1fr; } }
+.prim { background: var(--ink); padding: 32px 28px; }
+.prim .label { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.prim h3 { font-size: 1.3rem; font-weight: 600; margin: 14px 0 12px; }
+.prim p { margin: 0; font-size: 1rem; color: var(--text); }
+.prim code { font-family: var(--mono); font-size: .9em; color: var(--text); background: var(--surface); padding: 1px 6px; border-radius: 3px; }
+
+/* ---- adopt ---- */
+.adopt .lead { font-size: 1.3rem; margin: 0 0 28px; }
+.qs { list-style: none; margin: 0 0 28px; padding: 0; }
+.qs li { padding: 16px 0; border-top: 1px solid var(--hairline); font-size: 1.15rem; }
+.qs li:last-child { border-bottom: 1px solid var(--hairline); }
+.adopt .close { color: var(--text); }
+.adopt code { font-family: var(--mono); font-size: .92em; color: var(--accent); }
+
+/* ---- status strip ---- */
+.status { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+.status .wrap { padding-top: 40px; padding-bottom: 40px; }
+.status p { font-family: var(--mono); font-size: 14px; line-height: 1.8; color: var(--muted); margin: 0; }
+.status code { color: var(--text); }
+
+/* ---- footer ---- */
+footer { padding: 48px 0 64px; }
+footer .row { display: flex; flex-wrap: wrap; gap: 24px; font-family: var(--mono); font-size: 13px; }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--text); }
+footer .copy { color: var(--muted); margin-top: 18px; font-family: var(--mono); font-size: 12px; }
+
+/* ---- progressive fade-in (JS adds .reveal; gated by reduced-motion) ---- */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
