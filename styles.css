@@ -163,7 +163,8 @@ footer .copy { color: var(--muted); margin-top: 18px; font-family: var(--mono); 
 }
 
 /* ---- primitives flow diagram ---- */
-.flow { display: block; width: 100%; max-width: 760px; height: auto; color: var(--hairline); margin: 0 0 36px; }
+.flowband { padding: 0 0 84px; }
+.flow { display: block; width: 100%; max-width: 760px; height: auto; color: var(--hairline); margin: 0 auto; }
 .flow text { font-family: var(--mono); font-size: 14px; fill: var(--text); }
 .flow text.sm { font-size: 11px; fill: var(--muted); }
 
