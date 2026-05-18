@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Azimuth — context-first methodology</title>
-<meta name="description" content="Moving from automated to agentic is a design problem, not a runtime problem. Azimuth is where you design the governance in — before the model, before the orchestrator.">
+<meta name="description" content="Going agentic is a design problem, not a runtime one. Specify the governance — gates, expert knowledge, evidence — before you pick a model or orchestrator.">
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./styles.css">
 <meta property="og:title" content="Your agentic workflows are still just automation.">
@@ -39,7 +39,7 @@
   <section class="wrap hero">
     <p class="eyebrow">Azimuth · context-first methodology</p>
     <h1>Your agentic workflows are still just automation.</h1>
-    <p>Moving from automated to agentic is a design problem, not a runtime problem. Azimuth is where you design the governance in — before the model, before the orchestrator.</p>
+    <p>Going agentic is a design problem, not a runtime one. Specify the governance — gates, expert knowledge, evidence — before you pick a model or orchestrator.</p>
     <div class="cta">
       <a class="btn btn-primary" href="#argument">Read the argument →</a>
       <a class="btn btn-ghost" href="https://github.com/akagou/azimuth">View on GitHub</a>
@@ -53,19 +53,19 @@
         <div class="movement reveal">
           <span class="num">i</span>
           <h3>The question you can't answer</h3>
-          <p>Your CTO asks one thing: if the model makes a wrong call, can you show exactly why, and who approved it? Most agentic systems can't. The process is scattered across six Python files, two prompt templates, and a doc that went stale two months ago.</p>
+          <p>A model makes a wrong call. Can you show exactly why, and who approved it? Most agentic systems can't — the process lives in scattered Python, prompt templates, and a doc that went stale two months ago.</p>
         </div>
         <div class="movement reveal">
           <span class="num">ii</span>
           <h3>It's a design problem</h3>
-          <p>Frameworks execute agent graphs well. None of them answer the questions that matter in a high-stakes workflow: what is the contract for each agent? Where must a human <em>decide</em> — not just approve? What domain knowledge has to exist before the workflow runs? You cannot bolt these onto a system that was never designed for them.</p>
+          <p>Frameworks execute agent graphs. None define the contracts: what each agent must do, where a human must <em>decide</em> — not just approve — what domain knowledge must exist before the workflow runs. You can't bolt these onto a system never designed for them.</p>
         </div>
         <div class="movement reveal">
           <span class="num">iii</span>
           <h3>Governance is a file you author</h3>
-          <p>Every other approach runs at inference time or after the fact — monitoring, guardrails, audit logs. Azimuth runs at design time. The context spec is written once and executes unmodified on any conformant runtime. Governance stops being a system you operate and becomes a file you author.</p>
+          <p>Other approaches run at inference time or after the fact: monitoring, guardrails, audit logs. Azimuth runs at design time. One context spec, written once, executes unmodified on any conformant runtime. Governance becomes a file you author, not a system you operate.</p>
         </div>
-        <blockquote class="pull">The context stack survives every technology change because it was never about the technology.</blockquote>
+        <blockquote class="pull">The context stack outlives every technology change. It was never about the technology.</blockquote>
         <p class="footnote">Prior art is documented honestly — see <code>docs/07-prior-art.md</code>. The novelty is naming and packaging the discipline, not claiming the parts are new.</p>
       </div>
     </div>
@@ -74,12 +74,12 @@
   <section id="primitives" class="section">
     <div class="wrap">
       <h2><span class="mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"/><line x1="32" y1="32" x2="48" y2="12" stroke="#5FB3A3" stroke-width="5" stroke-linecap="round"/></svg></span>Three primitives</h2>
-      <p class="read" style="margin:0 0 36px;color:var(--text)">Three primitives, unified in one portable, validated spec. None of them is provided at design time by any runtime.</p>
+      <p class="read" style="margin:0 0 36px;color:var(--text)">Three primitives, one portable validated spec. No runtime gives you these at design time.</p>
       <div class="grid3">
         <div class="prim">
           <span class="label">SME Input Packs</span>
           <h3>Expert knowledge, typed</h3>
-          <p>Domain knowledge as a typed, validated artifact: named answerer, role, evidence links, confidence rating, sign-off. Not a freeform prompt. Inspectable, versionable, auditable.</p>
+          <p>Expert knowledge as a typed artifact: named answerer, role, evidence links, confidence, sign-off. Not a prompt. Inspectable, versionable, auditable.</p>
         </div>
         <div class="prim">
           <span class="label">Gates</span>
@@ -104,7 +104,7 @@
         <li>Where must a human decide, with real judgment?</li>
         <li>What knowledge lives only in your domain experts?</li>
       </ul>
-      <p class="close">The answers become a <strong>Context Design Document</strong> — prose your stakeholders can read. It compiles to a validated <code>context-spec.yaml</code> that any conformant runtime executes.</p>
+      <p class="close">The answers become a <strong>Context Design Document</strong> — prose stakeholders can read. It compiles to a validated <code>context-spec.yaml</code> that any conformant runtime runs.</p>
     </div>
   </section>
 
