@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Azimuth — context-first methodology</title>
+<meta name="description" content="Moving from automated to agentic is a design problem, not a runtime problem. Azimuth is where you design the governance in — before the model, before the orchestrator.">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./styles.css">
+<meta property="og:title" content="Your agentic workflows are still just automation.">
+<meta property="og:description" content="Azimuth — context-first methodology. Design-time governance for multi-agent workflows.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="24" height="24" fill="none">
+          <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="3"/>
+          <line x1="32" y1="32" x2="48" y2="12" stroke="#5FB3A3" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="4" fill="#5FB3A3"/>
+        </svg>
+      </span>
+      Azimuth
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#argument">Argument</a>
+      <a href="#primitives">Primitives</a>
+      <a href="#adopt">Adopt</a>
+      <a class="gh" href="https://github.com/akagou/azimuth">GitHub ↗</a>
+    </nav>
+  </header>
+</div>
+
+<main id="main">
+  <section class="wrap hero">
+    <p class="eyebrow">Azimuth · context-first methodology</p>
+    <h1>Your agentic workflows are still just automation.</h1>
+    <p>Moving from automated to agentic is a design problem, not a runtime problem. Azimuth is where you design the governance in — before the model, before the orchestrator.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#argument">Read the argument →</a>
+      <a class="btn btn-ghost" href="https://github.com/akagou/azimuth">View on GitHub</a>
+    </div>
+  </section>
+
+  <section id="argument" class="section">
+    <div class="wrap">
+      <h2><span class="mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"/><line x1="32" y1="32" x2="48" y2="12" stroke="#5FB3A3" stroke-width="5" stroke-linecap="round"/></svg></span>The argument</h2>
+      <div class="read">
+        <div class="movement reveal">
+          <span class="num">i</span>
+          <h3>The question you can't answer</h3>
+          <p>Your CTO asks one thing: if the model makes a wrong call, can you show exactly why, and who approved it? Most agentic systems can't. The process is scattered across six Python files, two prompt templates, and a doc that went stale two months ago.</p>
+        </div>
+        <div class="movement reveal">
+          <span class="num">ii</span>
+          <h3>It's a design problem</h3>
+          <p>Frameworks execute agent graphs well. None of them answer the questions that matter in a high-stakes workflow: what is the contract for each agent? Where must a human <em>decide</em> — not just approve? What domain knowledge has to exist before the workflow runs? You cannot bolt these onto a system that was never designed for them.</p>
+        </div>
+        <div class="movement reveal">
+          <span class="num">iii</span>
+          <h3>Governance is a file you author</h3>
+          <p>Every other approach runs at inference time or after the fact — monitoring, guardrails, audit logs. Azimuth runs at design time. The context spec is written once and executes unmodified on any conformant runtime. Governance stops being a system you operate and becomes a file you author.</p>
+        </div>
+        <blockquote class="pull">The context stack survives every technology change because it was never about the technology.</blockquote>
+        <p class="footnote">Prior art is documented honestly — see <code>docs/07-prior-art.md</code>. The novelty is naming and packaging the discipline, not claiming the parts are new.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="primitives" class="section">
+    <div class="wrap">
+      <h2><span class="mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"/><line x1="32" y1="32" x2="48" y2="12" stroke="#5FB3A3" stroke-width="5" stroke-linecap="round"/></svg></span>Three primitives</h2>
+      <p class="read" style="margin:0 0 36px;color:var(--text)">Three primitives, unified in one portable, validated spec. None of them is provided at design time by any runtime.</p>
+      <div class="grid3">
+        <div class="prim">
+          <span class="label">SME Input Packs</span>
+          <h3>Expert knowledge, typed</h3>
+          <p>Domain knowledge as a typed, validated artifact: named answerer, role, evidence links, confidence rating, sign-off. Not a freeform prompt. Inspectable, versionable, auditable.</p>
+        </div>
+        <div class="prim">
+          <span class="label">Gates</span>
+          <h3>Typed contracts</h3>
+          <p>Every workflow transition passes a gate that returns <code>PASS</code>, <code>FAIL</code>, or <code>ESCALATE</code> — owned by a named human role, with an explicit checklist. The workflow cannot advance on an agent's say-so.</p>
+        </div>
+        <div class="prim">
+          <span class="label">Evidence binding</span>
+          <h3>Structural audit trail</h3>
+          <p>Every claim in every artifact cites a source: an upstream artifact section, a data tag, or a specific SME answer. The audit trail is structural, not optional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="adopt" class="section adopt">
+    <div class="wrap read">
+      <h2><span class="mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"/><line x1="32" y1="32" x2="48" y2="12" stroke="#5FB3A3" stroke-width="5" stroke-linecap="round"/></svg></span>How adoption works</h2>
+      <p class="lead">You never hand-write YAML. You talk to the Azimuth Consultant. It asks three questions:</p>
+      <ul class="qs">
+        <li>What decision does the workflow produce?</li>
+        <li>Where must a human decide, with real judgment?</li>
+        <li>What knowledge lives only in your domain experts?</li>
+      </ul>
+      <p class="close">The answers become a <strong>Context Design Document</strong> — prose your stakeholders can read. It compiles to a validated <code>context-spec.yaml</code> that any conformant runtime executes.</p>
+    </div>
+  </section>
+
+  <section class="status">
+    <div class="wrap">
+      <p>Azimuth is <code>azimuth/v1alpha</code> — pre-1.0, a reference implementation. Breaking changes are possible until <code>v1</code>. Apache-2.0, patent grant included. This repository currently hosts the landing page; the toolkit and Consultant skill land next.</p>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div class="row">
+      <a href="https://github.com/akagou/azimuth">GitHub</a>
+      <a href="https://github.com/akagou/azimuth/blob/main/LICENSE">Apache-2.0</a>
+      <a href="https://github.com/akagou/azimuth/security/advisories">Security</a>
+      <a href="https://github.com/akagou/azimuth/blob/main/docs">Prior art</a>
+    </div>
+    <p class="copy">© 2026 Azimuth contributors.</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function (e) { e.classList.add('in'); });
+    return;
+  }
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (e) { e.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function (e) { io.observe(e); });
+})();
+</script>
+</body>
+</html>
